@@ -29,7 +29,7 @@ class Calculator {
         return -a
     }
 
-    fun removerUltimo(a: Double) : Double {
+    fun removeLast(a: Double) : Double {
         if (a.isNaN() || a.isInfinite()) {
             return a
         }
