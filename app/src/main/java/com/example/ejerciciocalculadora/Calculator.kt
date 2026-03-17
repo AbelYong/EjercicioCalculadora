@@ -8,7 +8,7 @@ class Calculator {
         return a + b
     }
 
-    fun substract(a: Double, b: Double): Double {
+    fun subtract(a: Double, b: Double): Double {
         return a - b
     }
 
@@ -17,7 +17,7 @@ class Calculator {
     }
 
     fun divide(a: Double, b: Double): Double {
-        require(b != 0.0) { "No se puede dividir entre cero" }
+        require(b != 0.0) { "Cannot divide by zero" }
         return a / b
     }
 

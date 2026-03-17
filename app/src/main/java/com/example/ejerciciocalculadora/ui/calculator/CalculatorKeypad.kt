@@ -60,15 +60,20 @@ fun CalculatorKeypad(
         CalculatorKey(
             label = "0",
             kind = ButtonKind.Number,
-            modifier = Modifier.weight(2f),
-            onClick = { onAction(CalculatorAction.Digit("0")) },
-            wide = true
+            modifier = Modifier.weight(1f),
+            onClick = { onAction(CalculatorAction.Digit("0")) }
         )
         CalculatorKey(
             label = ".",
             kind = ButtonKind.Number,
             modifier = Modifier.weight(1f),
             onClick = { onAction(CalculatorAction.Decimal) }
+        )
+        CalculatorKey(
+            label = "⌫",
+            kind = ButtonKind.Number,
+            modifier = Modifier.weight(1f),
+            onClick = { onAction(CalculatorAction.Backspace) }
         )
         CalculatorKey(
             label = "=",

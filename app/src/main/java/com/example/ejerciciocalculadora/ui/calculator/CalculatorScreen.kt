@@ -31,7 +31,7 @@ fun CalculatorScreen(modifier: Modifier = Modifier) {
     fun executeOperation(a: Double, b: Double, operator: String): String {
         val result = when (operator) {
             "+" -> calculator.add(a, b)
-            "-" -> calculator.substract(a, b)
+            "-" -> calculator.subtract(a, b)
             "x" -> calculator.multiply(a, b)
             "/" -> calculator.divide(a, b)
             else -> b
@@ -173,6 +173,26 @@ fun CalculatorScreen(modifier: Modifier = Modifier) {
                 val result = calculator.changeSign(current)
                 val text = calculator.formatResult(result)
                 uiState = uiState.copy(currentNumber = text, display = text)
+            }
+
+            CalculatorAction.Backspace -> {
+                if (uiState.restartDisplay) {
+                    if (uiState.currentOperator != null) {
+                        uiState = uiState.copy(
+                            currentNumber = "0",
+                            display = "0",
+                            restartDisplay = false
+                        )
+                    }
+                } else {
+                    val current = uiState.currentNumber.toDoubleOrNull() ?: return
+                    val result = calculator.removeLast(current)
+                    val text = calculator.formatResult(result)
+                    uiState = uiState.copy(
+                        currentNumber = text,
+                        display = text
+                    )
+                }
             }
         }
     }
